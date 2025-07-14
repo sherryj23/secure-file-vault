@@ -1,5 +1,5 @@
 Week 1: CLI Secure File Vault
-
+ 
 This is a simple but secure command-line file vault written in Python. It uses Fernet symmetric encryption to protect your files and supports optional deletion of originals or encrypted files with CLI flags.
 
 Features
