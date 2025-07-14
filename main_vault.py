@@ -57,7 +57,7 @@ def decrypt(filename, cleanup=False):
     file = open(decrypted_name, "wb")
     file.write(plain_text)
     file.close()
-    
+
     if cleanup:
         os.remove(filename)
         print("Encrypted file deleted.")
