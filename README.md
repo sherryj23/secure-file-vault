@@ -1,58 +1,53 @@
-Week 1: CLI Secure File Vault
+A multi-stage file encryption project built in Python. Each week adds new features — from a secure CLI vault to a GUI-powered encryption app with password-based key derivation and cleanup flags.
 
-This is a simple but secure command-line file vault written in Python. It uses Fernet symmetric encryption to protect your files and supports optional deletion of originals or encrypted files with CLI flags.
+Project Structure
 
-Features
-- Encrypt any file using symmetric key encryption
-- Decrypt previously encrypted files
-- Securely stores your .vault.key encryption key
-- Prevents overwriting of encrypted or decrypted versions
-- Optional flags to:
-  - --secure delete the original after encryption
-  - --cleanup delete the encrypted file after decryption
+/secure-file-vault/
+├── week1_cli_vault/         # CLI vault with Fernet encryption and file-safety flags
+├── week2_security_upgrade/  # Adds PBKDF2 master password + GUI + secure deletion
+└──  week3_polish/            # Final polish: cleanup, UX, and optional add-ons
 
-How to Use
+Quickstart (Week 1 Example)
 
-Make sure you're in the right folder and you have a file like test.txt ready.
-
-1. Encrypt a file
-python3 vault.py test.txt encrypt
-
-2. Decrypt a file
-python3 vault.py test.encrypted.txt decrypt
-
-With Flags (MUST be used on the same line)
-
-Encrypt + delete original
+cd week1_cli_vault
 python3 vault.py test.txt encrypt --secure
-
-Decrypt + delete encrypted version
 python3 vault.py test.encrypted.txt decrypt --cleanup
 
-Important: Flags must be used on the same line as the encrypt/decrypt command. Running them after has no effect.
+Setup
 
-/week1_cli_vault/
-├── vault.py              # Week 1 CLI encryption/decryption program
-├── test.txt              # Sample file to test encryption and decryption
-├── test.encrypted.txt    # Encrypted output (generated)
-├── test.decrypted.txt    # Decrypted output (generated)
-├── requirements.txt      # Python package dependencies
-└── README.md             # Documentation for Week 1
+Install dependencies for each week as needed:
+pip install -r week1_cli_vault/requirements.txt
 
-How It Works
-- When encrypting:
-  - The file is encrypted and saved as yourfile.encrypted.txt
-  - If --secure is passed, the original is deleted
-- When decrypting:
-  - The encrypted file is decrypted and saved as yourfile.decrypted.txt
-  - If --cleanup is passed, the encrypted version is deleted
-Future Work (Preview for Week 2+)
+Weekly Breakdown
 
-- Add password-based key derivation using PBKDF2
-- Secure delete using overwrite tools
-- Hide key file in OS-protected folders
-- Add GUI
-- Custom .vault file formats
+Week 1: CLI Vault with Fernet Encryption
+- Uses cryptography.fernet for symmetric encryption
+- Auto-generates and stores a .vault.key
+- Flags:
+  --secure to delete the original after encryption
+  --cleanup to delete the encrypted file after decryption
+- CLI usage via argparse
+
+Week 2: Security Upgrade + GUI
+- PBKDF2-based key derivation
+  - cryptography.hazmat.primitives.kdf.pbkdf2.PBKDF2HMAC
+  - Password → derived key using salt (auto-saved/reused)
+- Master password prompt
+  - Secure CLI input via getpass
+- GUI support
+  - Tkinter drag-and-drop app
+  - Integrated backend encryption/decryption
+- Secure deletion
+  - Auto-deletes sensitive files after action
+  - Optional: use secure wipe tools (e.g. shred, srm)
+
+Week 3: Polish & UX Improvements
+- Refactor codebase for readability and modularity
+- Enhanced user feedback and error messages
+- Unified encryption format
+
+Each week's folder has its own README.md with testing instructions.
+"""
 
 Built By
 
