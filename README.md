@@ -1,6 +1,6 @@
 A multi-stage file encryption project built in Python. Each week adds new features — from a secure CLI vault to a GUI-powered encryption app with password-based key derivation and cleanup flags.
 
-Project Structure
+Project Structure 
 
 /secure-file-vault/
 ├── week1_cli_vault/         # CLI vault with Fernet encryption and file-safety flags
