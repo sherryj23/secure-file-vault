@@ -31,12 +31,13 @@ python3 vault.py test.encrypted.txt decrypt --cleanup
 
 Important: Flags must be used on the same line as the encrypt/decrypt command. Running them after has no effect.
 
-Project Structure
 /week1_cli_vault/
-├── vault.py              # Main CLI encryption/decryption program
-├── .vault.key            # Fernet symmetric encryption key (auto-generated)
-├── test.txt              # Example test file to encrypt/decrypt
-└── README.md             # This file
+├── vault.py              # Week 1 CLI encryption/decryption program
+├── test.txt              # Sample file to test encryption and decryption
+├── test.encrypted.txt    # Encrypted output (generated)
+├── test.decrypted.txt    # Decrypted output (generated)
+├── requirements.txt      # Python package dependencies
+└── README.md             # Documentation for Week 1
 
 How It Works
 - When encrypting:
